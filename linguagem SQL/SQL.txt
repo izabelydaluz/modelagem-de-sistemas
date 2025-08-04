@@ -1,0 +1,14 @@
+
+# criar o banco de dados (database)
+
+create database exemplo;
+
+
+# criar tabelas (entidades)
+
+create table aluno ( 
+
+código int (5) not null,                  # not null =  pode deixar em branco
+nome varchar(50) not null,
+telefone int(10) not null,
+primary key(código));

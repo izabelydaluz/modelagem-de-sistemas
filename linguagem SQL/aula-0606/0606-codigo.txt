@@ -1,0 +1,67 @@
+/* criar o banco imobiliaria*/
+
+create table prorpietario (
+    cpf         int         	 not null,
+    nome        varchar(50)     not null,
+    endereco    varchar(50)     not null,
+    cidade      varchar(50)     not null,
+    estado      char(2)         not null,
+    telefone    int        		 not null,
+    primary key(cpf));
+
+create table corretor (
+    cpf         int          	 not null,
+    nome        varchar(50)      not null,
+    endereco    varchar(50)      not null,
+    cidade      varchar(50)      not null,
+    estado      char(2)          not null,
+    telefone    int          	 not null,
+    primary key(cpf));
+
+create table inquilino(
+    cpf         int             	 not null,
+    nome        varchar(50)         not null,
+    endereco    varchar(50)         not null,
+    cidade      varchar(50)         not null,
+    estado      char(2)             not null,
+    telefone    int             	 not null, 
+    cpfcorretor int             	 not null,
+    primary key (cpf),
+    foreign key (cpfcorretor) references corretor(cpf));
+
+create table imovel (
+    codigo          int         	 not null,
+    descricao       varchar(50)     not null,
+    endereco        varchar(50)     not null,
+    cidade          varchar(50)     not null,
+    estado          char(2)         not null,
+    tipo            varchar(50)     not null,
+    valor           decimal(10,2)     		not null,
+    cpfinquilino    int         	not null,
+    cpfprorpietario int         	not null,
+    primary key(codigo),
+    foreign key (cpfinquilino) references inquilino(cpf),
+    foreign key (cpfprorpietario) references prorpietario(cpf));
+
+	/*inserir dados nas tabelas (insert = input)*/
+
+insert into prorpietario(cpf,nome,endereco,cidade,estado,telefone)
+values (1, 'cris' , 'jardim angelica','criciuma','SC', 123);
+
+insert into prorpietario(cpf,nome,endereco,cidade,estado,telefone)
+values (2, 'mariane' , 'centro','criciuma','SC', 321);
+
+insert into corretor(cpf,nome,endereco,cidade,estado,telefone)
+values (3, 'iza' , 'prospera','criciuma','SC', 987);
+
+insert into inquilino(cpf,nome,endereco,cidade,estado,telefone,cpfcorretor)
+values (4, 'alberto' , 'joinvile','urusanga','SC', 789,4);
+
+insert into imovel(codigo,descricao,endereco,cidade,estado,tipo,valor,cpfinquilino,cpfprorpietario)
+values (545, 'casa' , 'esquina','içara','SC', 'alto',45.5,4,2);
+
+/*conferir se gravou */
+select * from prorpietario
+select * from corretor
+select * from inquilino
+select * from imovel
