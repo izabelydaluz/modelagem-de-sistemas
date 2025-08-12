@@ -6,7 +6,7 @@
 
 <p align="center">
 
-<img  height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=izabelydaluz&layout=compact&theme=monokai&show_icons=true" />
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="40" height="40" />
   
 </p>
 
