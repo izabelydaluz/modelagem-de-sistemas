@@ -1,0 +1,54 @@
+revisão
+
+select * from proprietarios;
+select * from funcionarios;
+select * from imoveis;
+
+
+select data,vendas
+from  vendas;
+
+
+select vendas,funcionario
+from vendas;
+
+select vendas,proprietario
+from vendas;
+
+select funcionario,vendas
+from vendas
+where codigo=01;
+
+select proprietario,vendas
+from vendas
+where codigo=02;
+
+select funcionario,proprietario,vendas
+from vendas
+where codigo=01 or codigo=02;
+
+select vendas
+from vendas
+where data = 19/09/2011;
+
+update proprietarios
+set fone  = 4834327551
+where codigo=2;
+
+update funcionarios
+set salario = salario * 110/100
+where cargo = "gerente";
+
+update imoveis
+set descricao = "Cobertura duplex com vista panorâmica", tipo_imovel = "Cobertura"
+where codigo = 4;
+
+update imoveis
+set descricao = "R$ 580.000,00."
+where codigo = 3;
+
+delete from vendas
+where imovel="terreno";
+
+delete from funcionarios
+where codigo = 2;

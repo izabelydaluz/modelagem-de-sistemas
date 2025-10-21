@@ -1,0 +1,82 @@
+--------insert
+
+insert into  proprietarios ( nome, cidade, estado, fone) 
+values ("iza","criciuma","sc",048987678);
+
+select * from departamento
+insert into departamento (nome,descricao,telefone) values("recursos humanos", "departamento responsavel pelos recursos humanos da empressa",12233456)
+
+----------update :
+
+update produtos
+set preco = 350
+where id = 2;
+
+update produtos
+set preco = 1400,estoque = 90
+where id = 5;
+
+update produtos
+set estoque = 0 
+where categoria = "eletronico"
+
+-----------delete: 
+delete from produtos
+	where id = 5
+
+delete from produtos
+where estoque = 0
+
+---------- select
+select nome, preco
+from produtos
+where categoria = "papelaria"
+
+select nome, preco,id
+from produtos
+where categoria = "papelaria"
+
+
+select nome, preco,id
+from produtos
+where categoria = "papelaria" AND preco< 500;
+
+select nome, preco,id
+from produtos
+where nome LIKE "caderno";
+
+-------------ORDER BY
+select nome, preco,id
+from produtos
+ORDER BY preco DESC;
+
+select nome, preco,id
+from produtos
+ORDER BY preco ASC;
+
+select nome, estoque,id
+from produtos
+order by estoque asc;
+
+------------COUNT
+select COUNT(*) as total_produtos 
+from produtos;
+
+------SUM
+select sum(estoque) as total_itens 
+from produtos;
+
+select sum(preco) as total_itens 
+from produtos;
+
+-----------AVG
+select avg(preco) as media
+from produtos;
+
+---MAX
+select max(preco) as mais_caro
+from produtos;
+
+----------MIN
+select min(estoque) as menos_estoque
+from produtos;
