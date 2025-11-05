@@ -1,0 +1,71 @@
+CREATE TABLE produtos ( 
+
+id INT AUTO_INCREMENT PRIMARY KEY, 
+nome VARCHAR(100) NOT NULL, 
+categoria VARCHAR(50), 
+preco DECIMAL(10, 2), 
+estoque INT );
+
+INSERT INTO produtos (nome, categoria, preco, estoque) VALUES 
+(‘Notebook', 'Eletrônicos', 7500.00, 15), 
+('Mouse Gamer', 'Acessórios', 350.00, 120), 
+('Teclado', 'Acessórios', 580.00, 75), 
+('Monitor 4K', 'Eletrônicos', 2200.00, 30), 
+('Cadeira Gamer', 'Móveis', 1500.00, 25);
+
+
+-------------------------between --> esteje entre
+select nome,preco
+from produtos
+where preco between 500 and 2500; ----- intervalo de preços 
+
+select nome,preco
+from produtos
+where preco NOT between 500 and 2500;
+
+-------------------------group by  --> agrupa
+
+select categoria, count(*) 
+as qtd_produtos 
+from produtos
+group by categoria
+
+
+
+select categoria, sum(estoque)
+as itens_estoque
+from  produtos
+group by categoria;
+
+
+select max(preco) as mais_caro
+from produtos
+group by categoria;
+
+select nome,max(preco) as mais_caro
+from produtos
+group by categoria;
+
+
+select  max(preco) as mais_caro,min(preco) as mais_barato,avg(preco) as media
+from produtos
+group by categoria;
+
+
+select categoria,preco, count(*) as qtd_com_mesmo_preco
+from produtos 
+group by categoria,preco order by categoria;
+
+------------------------having (tem pelo menos 1 item) --> filtro
+
+
+select categoria, count(*) as total_produtos
+from produtos
+group by categoria
+having count(*) >=2;
+
+select categoria, avg(preco) as preco_medio
+from produtos
+group by categoria
+having avg(preco) < 1000;
+
